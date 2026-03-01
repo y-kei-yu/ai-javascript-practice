@@ -54,34 +54,64 @@
 /**
  * age が 20以上の人の年齢合計を出す関数
  */
+// const person = [
+//   { name: "A", age: 18 },
+//   { name: "B", age: 25 },
+//   { name: "C", age: 30 },
+// ];
+// const extraPersons = person.filter((p) => {
+//   return p.age >= 20;
+// });
+// console.log(extraPersons);
+
+// const initialValue = 0;
+// const sumAgeNum = (extraPersons) => {
+//   return extraPersons.reduce(
+//     (accumulator, currentValue) => accumulator + currentValue.age,
+//     initialValue,
+//   );
+// };
+// console.log(sumAgeNum(extraPersons));
+
+/**
+ * age が 20以上の人の年齢合計を出す関数
+ * filterとreduceをまとめる
+ */
+// const person = [
+//   { name: "A", age: 18 },
+//   { name: "B", age: 25 },
+//   { name: "C", age: 30 },
+// ];
+// const sumAgeNum2 = (persons) => {
+//   return persons
+//     .filter((p) => p.age >= 20)
+//     .reduce((acc, cur) => acc + cur.age, 0);
+// };
+
+// console.log(sumAgeNum2(person));
+
+/**
+ * age が 20以上の人の年齢合計を出す関数
+ * filterとreduceをまとめる
+ */
+
 const person = [
   { name: "A", age: 18 },
   { name: "B", age: 25 },
   { name: "C", age: 30 },
 ];
 
-const extraPersons = person.filter((p) => {
-  return p.age >= 20;
-});
-console.log(extraPersons);
-
 const initialValue = 0;
-const sumAgeNum = (extraPersons) => {
-  return extraPersons.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.age,
-    initialValue,
-  );
-};
-console.log(sumAgeNum(extraPersons));
-
-/**
- * age が 20以上の人の年齢合計を出す関数
- * filterとreduceをまとめる
- */
-const sumAgeNum2 = (persons) => {
-  return persons
-    .filter((p) => p.age >= 20)
-    .reduce((acc, cur) => acc + cur.age, 0);
+const sumAgeNum3 = (person) => {
+  return person.reduce((accumulator, currentValue) => {
+    //person.ageにしていたがpersonは配列なのでageは見れない
+    //currentValueはオブジェクト一つを見ている
+    if (currentValue.age >= 20) {
+      return accumulator + currentValue.age;
+    } else {
+      return accumulator;
+    }
+  }, initialValue);
 };
 
-console.log(sumAgeNum(person));
+console.log(sumAgeNum3(person));
