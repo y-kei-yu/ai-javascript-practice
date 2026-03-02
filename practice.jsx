@@ -115,3 +115,20 @@ const sumAgeNum3 = (person) => {
 };
 
 console.log(sumAgeNum3(person));
+
+/**
+ *  全ユーザーの likes の合計を出す関数を書いてください。
+ */
+const users = [
+  {
+    name: "A",
+    posts: [
+      { title: "a1", likes: 10 },
+      { title: "a2", likes: 5 },
+    ],
+  },
+  {
+    name: "B",
+    posts: [{ title: "b1", likes: 20 }],
+  },
+];
