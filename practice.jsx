@@ -95,26 +95,26 @@
  * filterとreduceをまとめる
  */
 
-const person = [
-  { name: "A", age: 18 },
-  { name: "B", age: 25 },
-  { name: "C", age: 30 },
-];
+// const person = [
+//   { name: "A", age: 18 },
+//   { name: "B", age: 25 },
+//   { name: "C", age: 30 },
+// ];
 
-const initialValue = 0;
-const sumAgeNum3 = (person) => {
-  return person.reduce((accumulator, currentValue) => {
-    //person.ageにしていたがpersonは配列なのでageは見れない
-    //currentValueはオブジェクト一つを見ている
-    if (currentValue.age >= 20) {
-      return accumulator + currentValue.age;
-    } else {
-      return accumulator;
-    }
-  }, initialValue);
-};
+// const initialValue = 0;
+// const sumAgeNum3 = (person) => {
+//   return person.reduce((accumulator, currentValue) => {
+//     //person.ageにしていたがpersonは配列なのでageは見れない
+//     //currentValueはオブジェクト一つを見ている
+//     if (currentValue.age >= 20) {
+//       return accumulator + currentValue.age;
+//     } else {
+//       return accumulator;
+//     }
+//   }, initialValue);
+// };
 
-console.log(sumAgeNum3(person));
+// console.log(sumAgeNum3(person));
 
 /**
  *  全ユーザーの likes の合計を出す関数を書いてください。
@@ -132,3 +132,13 @@ const users = [
     posts: [{ title: "b1", likes: 20 }],
   },
 ];
+const initialValue2 = 0;
+const sumAllLikes = (users) => {
+  return users.reduce((accumulator, user) => {
+    user.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.likes,
+      initialValue2,
+    );
+  });
+};
+console.log(sumAllLikes(users));
