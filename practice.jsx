@@ -133,12 +133,9 @@ const users = [
   },
 ];
 const initialValue2 = 0;
-const sumAllLikes = (users) => {
-  return users.reduce((accumulator, user) => {
-    user.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.likes,
-      initialValue2,
-    );
-  });
+const sumAllLikes = (acc, user) => {
+  const userLikes = user.posts.reduce((accumulator, currentValue) => {
+    return acc + userLikes;
+  }, initialValue2);
 };
 console.log(sumAllLikes(users));
